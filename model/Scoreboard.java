@@ -39,4 +39,20 @@ public class Scoreboard {
             throw new Exception("Game " + game + " No game currently in progress.");
         }
     }
+
+    // 3. Update score. This should receive a pair of absolute scores: home team score and away team score.
+    public void updateScore(Game game) throws Exception {
+        if (game.getHomeScore() < 0 || game.getAwayScore() < 0) {
+            throw new Exception("Scores can't be negative");
+        } else if (!games.contains(game)) {
+            throw new Exception("Game " + game + " can not be updated. It have not started yet.");
+        } else {
+            int i = games.indexOf(game);
+            Game g = games.get(i);
+            g.setHomeScore(game.getHomeScore());
+            g.setAwayScore(game.getAwayScore());
+        }
+
+    }
+
 }
