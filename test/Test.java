@@ -1,5 +1,7 @@
 package test;
 
+import model.Scoreboard;
+
 // Based on TDD we need to start by methods tests first
 public class Test {
     @Test
