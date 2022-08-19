@@ -17,4 +17,13 @@ public class Scoreboard {
             games.add(0, new Game(game.getHomeTeam(), game.getAwayTeam()));
         }
     }
+
+    // getSummary() defined - by TDD approach
+    public void getSummary() {
+        if (games == null || games.isEmpty()) {
+            System.out.println("No games in progress, now");
+        } else {
+            games.stream().sorted().forEach(System.out::println);
+        }
+    }
 }

@@ -3,6 +3,9 @@ package test;
 import model.Game;
 import model.Scoreboard;
 import model.Team;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // Based on TDD we need to start by methods tests first
 public class ScoreboardTest {
