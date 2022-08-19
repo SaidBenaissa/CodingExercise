@@ -3,6 +3,9 @@ package test;
 import model.Game;
 import model.Scoreboard;
 import model.Team;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // Based on TDD we need to start by methods tests first
 public class ScoreboardTest {
@@ -37,7 +40,17 @@ public class ScoreboardTest {
         }
     }
 
-    //
+    // getSummary pass test
+    @Test
+    public void getSummaryPass() throws Exception {
+        Scoreboard scoreboard = new Scoreboard();
+        String homeTeam = "Morocco";
+        String awayTeam = "Algeria";
+        scoreboard.startGame(new Game(new Team(homeTeam), new Team(awayTeam)));
+        scoreboard.getSummary();
+    }
+
+    // getSummary NoGames test
     @Test
     public void getSummaryNoGames() {
         Scoreboard scoreboard = new Scoreboard();
