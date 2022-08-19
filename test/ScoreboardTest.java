@@ -6,6 +6,7 @@ import model.Team;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 // Based on TDD we need to start by methods tests first
 public class ScoreboardTest {
@@ -56,6 +57,47 @@ public class ScoreboardTest {
         Scoreboard scoreboard = new Scoreboard();
         scoreboard.getSummary();
         assertTrue(scoreboard.games.size() == 0);
+    }
+
+    // finishGame Passed test
+    @Test
+    public void finishGamePassed() throws Exception {
+
+        //Arrange
+        Scoreboard scoreboard = new Scoreboard();
+        String homeTeam = "Morocco";
+        String awayTeam = "Algeria";
+        // Act
+        scoreboard.startGame(new Game(new Team(homeTeam), new Team(awayTeam)));
+
+        //Assert
+        assertTrue(scoreboard.games.size() == 1);
+
+        //Act
+        scoreboard.finishGame(new Game(new Team(homeTeam), new Team(awayTeam)));
+
+        //Assert
+        assertTrue(scoreboard.games.size() == 0);
+    }
+
+
+    // Finish game failed test
+    @Test
+    public void finishGameFail()  {
+        //Arrange
+        try {
+            Scoreboard scoreboard = new Scoreboard();
+            String homeTeam = "Morocco";
+            String awayTeam = "Algeria";
+
+            //Act
+            scoreboard.finishGame(new Game(new Team(homeTeam), new Team(awayTeam)));
+            fail("An exception was expected");
+
+        } catch (Exception e) {
+            //Assert
+            assertTrue(true);
+        }
     }
 
 }
