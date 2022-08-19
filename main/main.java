@@ -18,6 +18,11 @@ public class main {
 
         System.out.println("Start results");
         scoreboard.getSummary();
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("Deleted one of games after it finshed");
+
+        scoreboard.finishGame(new Game(new Team("Mexico"), new Team("Canada")));
+        scoreboard.getSummary();
 
     }
 }

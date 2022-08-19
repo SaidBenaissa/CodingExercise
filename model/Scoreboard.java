@@ -8,7 +8,11 @@ public class Scoreboard {
     // Games list
     public List<Game> games = new ArrayList<Game>();
 
+    /*  1. Start a new game, assuming initial score 0 – 0 and adding it the scoreboard. This should capture following parameters:
+             a. Home team
+             b. Away team*/
     // Define startGame method after defining the startGameTest test (based TDD methodology)
+
     public void startGame(Game game) throws Exception {
 
         if(game.getHomeTeam().getTeamName().equals("") || game.getAwayTeam().getTeamName().equals("") ){
@@ -24,6 +28,15 @@ public class Scoreboard {
             System.out.println("No games in progress, now");
         } else {
             games.stream().sorted().forEach(System.out::println);
+        }
+    }
+
+    /* 2. Finish game currently in progress. This removes a match from the scoreboard.*/
+    public void finishGame(Game game) throws Exception {
+        if (games.contains(game)) {
+            games.remove(game);
+        } else {
+            throw new Exception("Game " + game + " No game currently in progress.");
         }
     }
 }
