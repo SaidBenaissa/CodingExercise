@@ -9,14 +9,14 @@ public class ScoreboardTest {
     // startGamePassed - startGame passed test
     @Test
     public void startGamePassed() throws Exception {
-        //Arrange
+        // Arrange
         Scoreboard scoreboard = new Scoreboard();
         String homeTeam = "Morocco";
         String awayTeam = "Algeria";
         //Act
         scoreboard.startGame(new Game(new Team(homeTeam), new Team(awayTeam)));
 
-        //Assert
+        // Assert
         assertTrue(scoreboard.games.size() == 1);
     }
 
@@ -35,6 +35,14 @@ public class ScoreboardTest {
             //Assert
             assertTrue(true);
         }
+    }
+
+    //
+    @Test
+    public void getSummaryNoGames() {
+        Scoreboard scoreboard = new Scoreboard();
+        scoreboard.getSummary();
+        assertTrue(scoreboard.games.size() == 0);
     }
 
 }

@@ -12,7 +12,7 @@ public class Scoreboard {
     public void startGame(Game game) throws Exception {
 
         if(game.getHomeTeam().getTeamName().equals("") || game.getAwayTeam().getTeamName().equals("") ){
-            throw new Exception(" Write a valid team names, must not be empty");
+            throw new Exception(" Write a valid teams names, must not be empty");
         }else {
             games.add(0, new Game(game.getHomeTeam(), game.getAwayTeam()));
         }
