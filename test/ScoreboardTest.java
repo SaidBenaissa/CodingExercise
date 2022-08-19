@@ -40,7 +40,17 @@ public class ScoreboardTest {
         }
     }
 
-    //
+    // getSummary pass test
+    @Test
+    public void getSummaryPass() throws Exception {
+        Scoreboard scoreboard = new Scoreboard();
+        String homeTeam = "Morocco";
+        String awayTeam = "Algeria";
+        scoreboard.startGame(new Game(new Team(homeTeam), new Team(awayTeam)));
+        scoreboard.getSummary();
+    }
+
+    // getSummary NoGames test
     @Test
     public void getSummaryNoGames() {
         Scoreboard scoreboard = new Scoreboard();
